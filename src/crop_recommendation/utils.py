@@ -11,7 +11,7 @@ from sklearn.metrics import r2_score
 from sklearn.model_selection import GridSearchCV
 import pymysql
 import numpy as np
-
+from dotenv import load_dotenv
 
 
 load_dotenv()
@@ -19,7 +19,7 @@ load_dotenv()
 host = os.getenv("host")
 user = os.getenv("user")
 password= os.getenv("password")
-db = os.getenv("db")
+db = os.getenv('db')
 
 
 def read_sql_data():
@@ -29,17 +29,17 @@ def read_sql_data():
             host=host,
             user=user,
             password=password,
-            db = db
+            db=db
         )
         logging.info("connection established",mydb)
-        df = pd.read_sql_query('select * from Houses',mydb)
+        df=pd.read_sql_query('select * from crop',mydb)
         print(df.head())
 
         return df
         
 
     except Exception as ex:
-        raise CustomException(ex)
+        raise CustomException(ex,sys)
     
 
 def save_object(file_path, obj):
@@ -74,9 +74,9 @@ def evaluate_models(X_train, y_train,X_test,y_test,models,param):
 
             y_test_pred = model.predict(X_test)
 
-            train_model_score = r2_score(y_train, y_train_pred)
+            train_model_score = r2_score(y_train,y_train_pred)
 
-            test_model_score = r2_score(y_test, y_test_pred)
+            test_model_score = r2_score(y_test,y_test_pred)
 
             report[list(models.keys())[i]] = test_model_score
 
