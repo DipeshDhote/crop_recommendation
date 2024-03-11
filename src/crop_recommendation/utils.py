@@ -7,7 +7,7 @@ import pymysql
 from dotenv import load_dotenv
 import pickle
 import numpy
-from sklearn.metrics import r2_score
+from sklearn.metrics import accuracy_score
 from sklearn.model_selection import GridSearchCV
 import pymysql
 import numpy as np
@@ -74,9 +74,9 @@ def evaluate_models(X_train, y_train,X_test,y_test,models,param):
 
             y_test_pred = model.predict(X_test)
 
-            train_model_score = r2_score(y_train,y_train_pred)
+            train_model_score = accuracy_score(y_train,y_train_pred)
 
-            test_model_score = r2_score(y_test,y_test_pred)
+            test_model_score = accuracy_score(y_test,y_test_pred)
 
             report[list(models.keys())[i]] = test_model_score
 
