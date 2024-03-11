@@ -38,7 +38,7 @@ class PredictPipeline:
 class CustomData:
     def __init__( self,
                  
-      N:float,
+      N:int,
       P:int,
       K:int,
       temperature:float, 
