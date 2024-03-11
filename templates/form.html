@@ -1,0 +1,57 @@
+<html>
+<body>
+<form action="{{url_for('predict_datapoint')}}" method="POST">
+    <div class="form-group">
+        <label for="N">N:</label>
+        <input type="text" id="N" name="N" placeholder="Enter Nitrogen % in soil">
+    </div>
+
+    <div class="form-group">
+        <label for="P">P:</label>
+        <input type="text" id="P" name="P" placeholder="Enter Phosphorus % in soil">
+    </div>
+
+    <div class="form-group">  
+        <label for="K">K:</label>
+        <input type="text" id="K" name="K" placeholder="Enter Potassium % in soil ">
+    </div>
+    
+    <div class="form-group">
+        <label for="temperatur">Temperatur:</label>
+        <input type="text" id="temperatur" name="temperatur" placeholder="Enter Temperatur ">
+    </div>
+  
+    <div class="form-group">
+        <label for="humidity">Humidity:</label>
+        <input type="text" id="humidity" name="humidity" placeholder="Enter Humidity ">
+    </div>
+  
+    <div class="form-group">
+        <label for="ph">ph:</label>
+        <select id="cut" name="cut">
+          <option value="4.5">4.5</option>
+          <option value="5.5">5.5</option>
+          <option value="6.5">6.5</option>
+          <option value="7.5">7.5</option>
+          <option value="8.5">8.5</option>
+        </select>
+      </div>
+    
+     
+
+    <div class="form-group">
+        <label for="rainfall">Rainfall:</label>
+        <input type="text" id="rainfall" name="rainfall" placeholder="Enter total rainfall in cm">
+    </div><br></br>    
+
+    
+   
+
+
+  <input type="submit" value="Submit">
+
+
+
+</form>
+</body>
+</html>
