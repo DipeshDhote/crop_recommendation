@@ -5,7 +5,7 @@ from dataclasses import dataclass
 import numpy as np
 import pandas as pd
 
-from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.preprocessing import StandardScaler,OneHotEncoder
 from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
@@ -26,30 +26,29 @@ class DataTransformation:
 
     def get_data_transformer_object(self):
         try:
+            # Define which columns should be ordinal-encoded and which should be scaled
             numerical_columns = ["N", "P", "K", "temperature", "humidity", "ph", "rainfall"]
-            categorical_columns = ["label"]
+    
+
+            # Define the custom ranking for each ordinal variable
+            
 
             num_pipeline = Pipeline(
                 steps=[
-                    ("imputer", SimpleImputer(strategy="mean")),
-                    ("scaler", StandardScaler())
+                    ("imputer",SimpleImputer()),
+                    ("scaler",StandardScaler())
                 ]
             )
             logging.info("reading complete numerical pipeline")
-            cat_pipeline = Pipeline(
-                steps=[
-                    ("imputer", SimpleImputer(strategy="most_frequent")),
-                    ("one_hot_encoder", OneHotEncoder())
-                ]
-            )
-
+            
             logging.info("Numerical pipeline completed")
-            logging.info("Categorical pipeline completed")
+            
 
             preprocessor = ColumnTransformer(
                 [
-                    ("numerical_pipeline",num_pipeline,numerical_columns),
-                    ("categorical_pipeline",cat_pipeline,categorical_columns)
+                    
+                    ("numerical_pipeline",num_pipeline,numerical_columns)
+                    
                 ]
             )
 
@@ -74,11 +73,13 @@ class DataTransformation:
             target_column_name="label"
             drop_columns = [target_column_name]
 
-            input_features_train_df = train_df.drop(columns=drop_columns, axis=1)
+            input_features_train_df = train_df.drop(columns=target_column_name,axis=1)
             target_feature_train_df = train_df[target_column_name]
 
-            input_feature_test_df = test_df.drop(columns=drop_columns, axis=1)
+            input_feature_test_df = test_df.drop(columns=target_column_name, axis=1)
             target_feature_test_df = test_df[target_column_name]
+
+        
 
             logging.info("Applying preprocessing on training and test data")
 
