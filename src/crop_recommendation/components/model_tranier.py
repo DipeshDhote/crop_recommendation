@@ -30,11 +30,6 @@ class ModelTrainer:
           
           return ac
 
-    
-    
-    
-    
-
 
     def initiate_model_trainer(self,train_array,test_array):
         try:
@@ -91,7 +86,7 @@ class ModelTrainer:
             print("This is the best model:",best_model_name)
 
             model_names = list(params.keys())
-            '''
+            
             actual_model =""
             
             for model in model_names:
@@ -100,7 +95,7 @@ class ModelTrainer:
 
             best_params = params[actual_model]
 
-            mlflow.set_registry_uri("https://dagshub.com/DipeshDhote/ml_project.mlflow")
+            mlflow.set_registry_uri("https://dagshub.com/DipeshDhote/crop_recommendation.mlflow")
             tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
 
 
@@ -110,13 +105,12 @@ class ModelTrainer:
 
                 predicted_qualities = best_model.predict(X_test)
 
-                (rmse, mae, r2) = self.eval_metrics(y_test, predicted_qualities)
+                (ac) = self.eval_metrics(y_test, predicted_qualities)
 
                 mlflow.log_params(best_params)
 
-                mlflow.log_metric("rmse", rmse)
-                mlflow.log_metric("r2", r2)
-                mlflow.log_metric("mae", mae)
+                mlflow.log_metric("Accuracy Score", ac)
+                
 
 
                 # Model registry does not work with file store
@@ -130,7 +124,7 @@ class ModelTrainer:
                 else:
                     mlflow.sklearn.log_model(best_model, "model")
 
-            '''
+            
 
             if  best_model_score <0.6:
                 raise CustomException("No best model found")
