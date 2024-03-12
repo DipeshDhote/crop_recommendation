@@ -36,24 +36,24 @@ class PredictPipeline:
 
 
 class CustomData:
-    def __init__( self,
-                 
-      N:int,
-      P:int,
-      K:int,
-      temperature:float, 
-      humidity:float,
-      ph:float,
-      rainfall:float,
-      ):
+    def __init__( self,                            
+     N:int,
+     P:int,
+     K:int,
+     temperature:float, 
+     humidity:float,
+     ph:float,
+     rainfall:float
+     ):
+     
             
-      self.N= N
-      self.P= P
-      self.K= K
-      self.temperature= temperature
-      self.humidity= humidity
-      self.ph= ph
-      self.rainfall= rainfall
+     self.N = N
+     self.P = P
+     self.K = K
+     self.temperature = temperature
+     self.humidity = humidity
+     self.ph = ph
+     self.rainfall = rainfall
       
 
     def get_data_as_data_frame(self):
