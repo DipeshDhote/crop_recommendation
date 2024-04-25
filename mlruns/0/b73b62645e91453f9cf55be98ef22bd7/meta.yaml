@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/dipes/OneDrive/Desktop/crop_recommendation/mlruns/0/b73b62645e91453f9cf55be98ef22bd7/artifacts
+end_time: 1713244247481
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: b73b62645e91453f9cf55be98ef22bd7
+run_name: clumsy-bear-719
+run_uuid: b73b62645e91453f9cf55be98ef22bd7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713244241203
+status: 3
+tags: []
+user_id: root
