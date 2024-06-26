@@ -1,3 +1,4 @@
+
 from flask import Flask, request, render_template
 from src.crop_recommendation.pipelines.prediction_pipeline import PredictPipeline, CustomData
 

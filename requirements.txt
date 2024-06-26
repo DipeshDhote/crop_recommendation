@@ -11,3 +11,4 @@ seaborn
 xgboost
 catboost
 mlflow==2.2.2
+flask

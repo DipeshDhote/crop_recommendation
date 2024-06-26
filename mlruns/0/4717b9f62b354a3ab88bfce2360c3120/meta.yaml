@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/dipes/OneDrive/Desktop/crop_recommendation/mlruns/0/4717b9f62b354a3ab88bfce2360c3120/artifacts
+end_time: 1719379761726
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 4717b9f62b354a3ab88bfce2360c3120
+run_name: adventurous-mare-223
+run_uuid: 4717b9f62b354a3ab88bfce2360c3120
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1719379755973
+status: 3
+tags: []
+user_id: root
